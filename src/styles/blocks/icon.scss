@@ -1,0 +1,54 @@
+@use '../utils/mixins' as *;
+@use '../blocks/variables.scss' as *;
+
+.icon {
+  display: block;
+  height: 24px;
+  width: 24px;
+  background-size: cover;
+  background-position: center;
+
+  @include hover(transform, scale(1.2));
+
+  @include on-tablet {
+    height: 32px;
+    width: 32px;
+  }
+}
+
+.icon--phone {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  &::before {
+    content: $phone-number;
+
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, 10px);
+
+    opacity: 0;
+    transition: 0.3s ease;
+
+    white-space: nowrap;
+    font-size: 14px;
+    color: #fff;
+
+    pointer-events: none;
+  }
+
+  &:hover::before {
+    opacity: 1;
+    transform: translate(-75%, 10px);
+  }
+}
+
+.icon--menu {
+  background-image: url(/src/icons/icon-menu.svg);
+
+  &:hover {
+    background-image: url(/src/icons/icon-menu-hover.svg);
+  }
+}
