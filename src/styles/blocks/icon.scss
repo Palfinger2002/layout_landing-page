@@ -24,10 +24,16 @@
   &::before {
     content: $phone-number;
 
+    font-family: Poppins, sans-serif;
+    font-weight: 700;
+    line-height: 16px;
+    letter-spacing: 2px;
+    margin: 8px 20px 8px 0;
+
     position: absolute;
     top: 100%;
     left: 50%;
-    transform: translate(-50%, 10px);
+    transform: translate(-120%, -10px);
 
     opacity: 0;
     transition: 0.3s ease;
@@ -39,16 +45,18 @@
     pointer-events: none;
   }
 
-  &:hover::before {
-    opacity: 1;
-    transform: translate(-75%, 10px);
+  @include on-desktop {
+    &:hover::before {
+      transform: translate(-120%, -30px);
+      opacity: 1;
+    }
   }
 }
 
 .icon--menu {
-  background-image: url(/src/icons/icon-menu.svg);
+  background-image: url(/src/icons/icon-burger-menu.png);
 
   &:hover {
-    background-image: url(/src/icons/icon-menu-hover.svg);
+    background-image: url(/src/icons/icon-burger-menu-hover.png);
   }
 }
